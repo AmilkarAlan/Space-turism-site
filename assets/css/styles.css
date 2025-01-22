@@ -14,6 +14,7 @@ html {
 body {
     height: 100dvh;
     width: 100dvw;
+    overflow-x: hidden;
 }
 
 p {
@@ -60,6 +61,9 @@ h5 {
 
 a {
     text-decoration: none;
+    letter-spacing: 2.7px;
+    font-size: 1rem;
+
 }
 
 a:visited {
@@ -109,8 +113,20 @@ li {
     background: hsl(0 0 0% / 0.55);
     backdrop-filter: blur(.75rem);
     z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    color: #fff;
 }
-.nav-toggle{
+
+.navList hr {
+    display: none;
+}
+
+.navList[data-visible=true] {
+    transform: translateX(0);
+}
+
+.nav-toggle {
     display: block;
     position: absolute;
     width: 2rem;
@@ -121,9 +137,11 @@ li {
     background: url("../images/shared/icon-hamburger.svg") no-repeat center center/contain;
     border: none;
 }
+
 .nav-toggle[aria-expanded="true"] {
     background: url("../images/shared/icon-close.svg") no-repeat center center/contain;
 }
+
 @supports (backdrop-filter: blur(1rem)) {
     .navList {
         background: hsl(0 0 100% / 0.1);
@@ -134,82 +152,101 @@ li {
 .navList a>span {
     font-weight: bold;
     margin-inline-end: 0.5rem;
+    letter-spacing: 2.7px;
+}
+
+.navList li {
+    position: relative;
+    display: flex;
+}
+
+.navList li.active::after {
+    content: "";
+    height: 100%;
+    width: 2px;
+    background-color: #fff;
+    margin-inline-end: 0.5rem;
+    position: absolute;
+    left: calc(99% + 2rem);
 }
 
 #home {
     background: url('../images/home/background-home-mobile.jpg') no-repeat center center/cover;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    color: #fff;
+
 
 }
 
 #destination {
     background: url('../images/destination/background-destination-mobile.jpg') no-repeat center center/cover;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    color: #fff;
-    text-align: center;
 
-    button {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-    }
 }
 
 #crew {
     background: url('../images/crew/background-crew-mobile.jpg') no-repeat center center/cover;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    color: #fff;
-    text-align: center;
 
-    button {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-    }
 }
 
 #technology {
     background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    color: #fff;
-    text-align: center;
 
-    button {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-    }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and  (min-width: 768px) {
     .navList {
         display: flex;
         flex-direction: row;
         padding: 0;
+        padding-block: 2rem;
+        padding-inline: clamp(3rem, 5vw, 10rem);
         gap: 2rem;
         position: relative;
         inset: 0;
         background: hsl(0 0 0% / 0.55);
         backdrop-filter: blur(.75rem);
         z-index: 1000;
+        transform: translateX(0);
+        transition: transform 0.5s ease-in-out;
     }
+
+    .navList li {
+        flex-direction: column;
+    }
+
+    .navList a>span {
+        display: none;
+    }
+
+    .navList li.active::after {
+        content: "";
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        margin-inline-end: 0;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 1.7rem);
+    }
+
     @supports (backdrop-filter: blur(1rem)) {
         .navList {
             background: hsl(0 0 100% / 0.1);
             backdrop-filter: blur(.75rem);
         }
     }
-    .nav-toggle{
+
+    .nav-toggle {
         display: none;
     }
+
     #home {
         background: url('../images/home/background-home-tablet.jpg') no-repeat center center/cover;
 
@@ -232,10 +269,65 @@ li {
 
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    .nav-toggle{
+@media screen and (min-width: 1024px) {
+    .nav-toggle {
         display: none;
     }
+
+    .navList {
+        flex-direction: row;
+        padding: 0;
+        padding-block: 2rem;
+        padding-inline: clamp(3rem, 5vw, 10rem);
+        gap: 2rem;
+        position: relative;
+        inset: 0;
+        transform: translateX(0);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .navList hr {
+        display: block;
+        position: absolute;
+        width:  100%;
+        height: 1px;
+        background-color: #D0D6F9;
+        opacity: 0.5;
+        right: calc(100% - 2rem);
+        top: 50%;
+    }
+
+    .navList li {
+        flex-direction: column;
+    }
+
+    .navList a {
+        display: flex;
+    }
+
+    .navList a>span {
+        display: block;
+
+    }
+
+    .navList li.active::after {
+        content: "";
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        margin-inline-end: 0;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 1.7rem);
+    }
+
+    @supports (backdrop-filter: blur(1rem)) {
+        .navList {
+            background: hsl(0 0 100% / 0.1);
+            backdrop-filter: blur(.75rem);
+        }
+    }
+
     #home {
         background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
 
