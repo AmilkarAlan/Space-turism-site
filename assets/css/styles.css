@@ -15,11 +15,13 @@ body {
     height: 100dvh;
     width: 100dvw;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 2rem;
+    font-size: .9rem;
+    line-height: 1.56rem;
     color: #D0D6F9;
 }
 
@@ -27,7 +29,8 @@ h1 {
     font-family: "Bellefair", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 9.4rem;
+    font-size: 5rem;
+    color: #fff;
 }
 
 h2 {
@@ -35,6 +38,7 @@ h2 {
     font-weight: 400;
     font-style: normal;
     font-size: 6.25rem;
+    color: #D0D6F9;
 }
 
 h3 {
@@ -55,8 +59,9 @@ h5 {
     font-family: "Barlow Condensed", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 1.75rem;
-    letter-spacing: .30rem;
+    font-size: 1rem;
+    letter-spacing: .16rem;
+    color: #D0D6F9;
 }
 
 a {
@@ -73,7 +78,24 @@ a:visited {
 li {
     list-style: none;
 }
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block-start: 3rem;
 
+}
 .sr-only {
     position: absolute;
     /* Coloca el contenido fuera de la pantalla */
@@ -172,35 +194,49 @@ li {
 
 #home {
     background: url('../images/home/background-home-mobile.jpg') no-repeat center center/cover;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
 
 }
+.homeContent {
+    width: 100%;
+    padding-inline: 1.5rem;
+    text-align: center;
+}
 
+.homeButton{
+    width: 100%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 100%;
+    font-family: "Bellefair", serif;
+    letter-spacing: 0.08rem;
+    font-size: 1.25rem;
+}
 #destination {
     background: url('../images/destination/background-destination-mobile.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
+
 
 }
 
 #crew {
     background: url('../images/crew/background-crew-mobile.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
+
 
 }
 
 #technology {
     background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-
 }
 
 @media screen and  (min-width: 768px) {
+    h1 {
+        font-size: 9.4rem;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    p {
+        font-size: 1rem;
+    }
     .navList {
         display: flex;
         flex-direction: row;
@@ -210,9 +246,6 @@ li {
         gap: 2rem;
         position: relative;
         inset: 0;
-        background: hsl(0 0 0% / 0.55);
-        backdrop-filter: blur(.75rem);
-        z-index: 1000;
         transform: translateX(0);
         transition: transform 0.5s ease-in-out;
     }
@@ -236,13 +269,6 @@ li {
         top: calc(100% + 1.7rem);
     }
 
-    @supports (backdrop-filter: blur(1rem)) {
-        .navList {
-            background: hsl(0 0 100% / 0.1);
-            backdrop-filter: blur(.75rem);
-        }
-    }
-
     .nav-toggle {
         display: none;
     }
@@ -250,6 +276,12 @@ li {
     #home {
         background: url('../images/home/background-home-tablet.jpg') no-repeat center center/cover;
 
+    }
+
+    .homeContent{
+        text-align: center;
+        padding-inline: 10rem;
+        
     }
 
     #destination {
@@ -270,6 +302,9 @@ li {
 }
 
 @media screen and (min-width: 1024px) {
+    main{
+        flex-direction: row;
+    }
     .nav-toggle {
         display: none;
     }
@@ -332,7 +367,15 @@ li {
         background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
 
     }
+.homeContent{
+    padding-inline: 10rem;
+    align-items: flex-start;
+    text-align: start;
+}
+.homeButton{
+    width: 63%;
 
+}
     #destination {
         background: url('../images/destination/background-destination-desktop.jpg') no-repeat center center/cover;
 
