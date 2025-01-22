@@ -12,8 +12,8 @@ html {
 }
 
 body {
-    height: 100%;
-    width: 100%;
+    height: 100dvh;
+    width: 100dvw;
 }
 
 p {
@@ -58,131 +58,94 @@ h5 {
     letter-spacing: .30rem;
 }
 
-#headerNav {
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+.sr-only {
+    position: absolute;
+    /* Coloca el contenido fuera de la pantalla */
+    width: 1px;
+    /* Hace que el contenido ocupe el menor espacio posible */
+    height: 1px;
+    /* Hace que el contenido ocupe el menor espacio posible */
+    margin: -1px;
+    /* Lo saca de la vista */
+    padding: 0;
+    /* Elimina cualquier relleno que podría ocupar espacio adicional */
+    border: 0;
+    /* Elimina cualquier borde que podría ocupar espacio adicional */
+    clip: rect(0, 0, 0, 0);
+    /* Recorta el contenido a 0, por lo que queda oculto */
+    overflow: hidden;
+    /* Asegura que no haya desbordamiento de contenido visible */
+}
+
+.header-placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
-    padding: 1rem 0;
-    position: relative;
-#menuIcon{
-    display: none;
 }
-#closeIcon{
-    display: none;
+
+.logoIcon {
+    margin: 2rem;
 }
-    nav {
-        width: auto;
-        background-color: #ffffff04;
-        backdrop-filter: blur(10px);
-        font-size: 1rem;
-        letter-spacing: 0.17rem;
 
-        ul {
-            display: flex;
-            height: 100%;
-            list-style: none;
-            li {
-                padding: 2rem 3rem;
-                a {
-                    position: relative;
-                    text-decoration: none;
-                    color: #fff;
-
-                    span {
-                        font-weight: bold;
-                    }
-                }
-
-                a:hover::after {
-                    content: "";
-                    position: absolute;
-                    background-color: #fff;
-                    opacity: 0.521;
-                    width: 100%;
-                    height: 3px;
-                    left: 0;
-                    bottom: calc(100% - 3.4rem);
-                }
-
-                a.active::after {
-                    content: "";
-                    position: absolute;
-                    background-color: #fff;
-                    width: 100%;
-                    height: 3px;
-                    left: 0;
-                    bottom: calc(100% - 3.4rem);
-                }
-            }
-
-            li:first-child {
-                margin-left: 3rem;
-            }
-
-            li:last-child {
-                margin-right: 3rem;
-            }
-
-        }
+.navList {
+    display: flex;
+    flex-direction: column;
+    padding: min(30vh, 10rem) 2rem;
+    gap: 2rem;
+    position: fixed;
+    inset: 0 0 0 30%;
+    background: hsl(0 0 0% / 0.55);
+    backdrop-filter: blur(.75rem);
+    z-index: 1000;
+}
+.nav-toggle{
+    display: block;
+    position: absolute;
+    width: 2rem;
+    aspect-ratio: 1;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    background: url("../images/shared/icon-hamburger.svg") no-repeat center center/contain;
+    border: none;
+}
+.nav-toggle[aria-expanded="true"] {
+    background: url("../images/shared/icon-close.svg") no-repeat center center/contain;
+}
+@supports (backdrop-filter: blur(1rem)) {
+    .navList {
+        background: hsl(0 0 100% / 0.1);
+        backdrop-filter: blur(.75rem);
     }
+}
 
-    nav::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 95%;
-        width: 50%;
-        height: 1px;
-        background: #ffff;
-        opacity: 0.2515;
-        z-index: -1;
-    }
-
-    img {
-        margin: 3rem 4rem;
-    }
+.navList a>span {
+    font-weight: bold;
+    margin-inline-end: 0.5rem;
 }
 
 #home {
-    background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
+    background: url('../images/home/background-home-mobile.jpg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     color: #fff;
 
-    #homeMain {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        justify-content: space-around;
-        padding: 3rem 4rem;
-    }
-
-    #homeInfo,
-    #homeButton {
-        width: min-content;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #homeButton {
-        align-items: center;
-        justify-content: center;
-    }
-
-    button {
-        border-radius: 50%;
-        width: 17rem;
-        height: 17rem;
-        font-family: "Bellefair", serif;
-        font-size: 2rem;
-
-    }
 }
 
 #destination {
-    background: url('../images/destination/background-destination-desktop.jpg') no-repeat center center/cover;
+    background: url('../images/destination/background-destination-mobile.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -197,7 +160,7 @@ h5 {
 }
 
 #crew {
-    background: url('../images/crew/background-crew-desktop.jpg') no-repeat center center/cover;
+    background: url('../images/crew/background-crew-mobile.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -212,7 +175,7 @@ h5 {
 }
 
 #technology {
-    background: url('../images/technology/background-technology-desktop.jpg') no-repeat center center/cover;
+    background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -227,109 +190,29 @@ h5 {
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
+    .navList {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        gap: 2rem;
+        position: relative;
+        inset: 0;
+        background: hsl(0 0 0% / 0.55);
+        backdrop-filter: blur(.75rem);
+        z-index: 1000;
+    }
+    @supports (backdrop-filter: blur(1rem)) {
+        .navList {
+            background: hsl(0 0 100% / 0.1);
+            backdrop-filter: blur(.75rem);
+        }
+    }
+    .nav-toggle{
+        display: none;
+    }
     #home {
         background: url('../images/home/background-home-tablet.jpg') no-repeat center center/cover;
 
-        nav::before {
-            display: none;
-        }
-
-        #homeMain {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 9.8rem;
-            text-align: center;
-
-        }
-
-        #headerNav {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            color: #fff;
-            width: 100%;
-            padding: 0;
-            position: relative;
-            overflow-x: hidden;
-
-            nav {
-                width: 100%;
-                background-color: #ffffff04;
-                backdrop-filter: blur(10px);
-                font-size: .87rem;
-                letter-spacing: 0.17rem;
-
-                ul {
-                    display: flex;
-                    height: 100%;
-                    list-style: none;
-                    align-items: center;
-                    justify-content: center;
-
-                    li {
-                        padding: 2.4rem;
-                        margin: 0;
-
-                        a {
-                            position: relative;
-                            text-decoration: none;
-                            color: #fff;
-
-                            span {
-                                display: none;
-                            }
-                        }
-
-                        a:hover::after {
-                            content: "";
-                            position: absolute;
-                            background-color: #fff;
-                            opacity: 0.521;
-                            width: 100%;
-                            height: 3px;
-                            left: 0;
-                            bottom: calc(100% - 3.4rem);
-                        }
-
-                        a.active::after {
-                            content: "";
-                            position: absolute;
-                            background-color: #fff;
-                            width: 100%;
-                            height: 3px;
-                            left: 0;
-                            bottom: calc(100% - 3.4rem);
-                        }
-                    }
-
-                    li:first-child {
-                        margin-left: 0;
-                    }
-
-                    li:last-child {
-                        margin-right: 0;
-                    }
-
-                }
-            }
-
-            nav::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                right: 95%;
-                width: 50%;
-                height: 1px;
-                background: #ffff;
-                opacity: 0.2515;
-                z-index: -1;
-            }
-
-            img {
-                margin: 1.5rem 2.43rem;
-            }
-        }
     }
 
     #destination {
@@ -349,123 +232,27 @@ h5 {
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .nav-toggle{
+        display: none;
+    }
     #home {
-        background: url('../images/home/background-home-mobile.jpg') no-repeat center center/cover;
-        #homeMain {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 9.8rem;
-            text-align: center;
-        }
+        background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
 
-        #headerNav {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            color: #fff;
-            width: 100%;
-            padding: 0;
-            overflow-x: visible;
-
-            nav {
-                width: 100%;
-                font-size: .87rem;
-                letter-spacing: 0.17rem;
-                background-color: transparent;
-                backdrop-filter: blur(0px);
-                
-                ul {
-                    background-color: rgba(255, 255, 255, 0.40);
-                    backdrop-filter: blur(81px);
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    height: 100dvh;
-                    width: 100%;
-                    list-style: none;
-                    li {
-                        padding: 2.4rem;
-                        margin: 0;
-
-                        a {
-                            position: relative;
-                            text-decoration: none;
-                            color: #fff;
-
-                            span {
-                                display: none;
-                            }
-                        }
-
-                        a:hover::after {
-                            content: "";
-                            position: absolute;
-                            background-color: #fff;
-                            opacity: 0.521;
-                            width: 100%;
-                            height: 3px;
-                            left: 0;
-                            bottom: calc(100% - 3.4rem);
-                        }
-
-                        a.active::after {
-                            content: "";
-                            position: absolute;
-                            background-color: #fff;
-                            width: 100%;
-                            height: 3px;
-                            left: 0;
-                            bottom: calc(100% - 3.4rem);
-                        }
-                    }
-
-                    li:first-child {
-                        margin-left: 0;
-                    }
-
-                    li:last-child {
-                        margin-right: 0;
-                    }
-
-                }
-            }
-
-            nav::before {
-                content: '';
-                display: none;
-                position: absolute;
-                top: 50%;
-                right: 95%;
-                width: 50%;
-                height: 1px;
-                background: #ffff;
-                opacity: 0.2515;
-                z-index: -1;
-            }
-
-            img {
-                margin: 1.5rem 2.43rem;
-            }
-        }
     }
 
     #destination {
-        background: url('../images/destination/background-destination-mobile.jpg') no-repeat center center/cover;
+        background: url('../images/destination/background-destination-desktop.jpg') no-repeat center center/cover;
 
     }
 
     #crew {
-        background: url('../images/crew/background-crew-mobile.jpg') no-repeat center center/cover;
+        background: url('../images/crew/background-crew-desktop.jpg') no-repeat center center/cover;
 
     }
 
     #technology {
-        background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
+        background: url('../images/technology/background-technology-desktop.jpg') no-repeat center center/cover;
 
     }
 

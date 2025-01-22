@@ -1,4 +1,4 @@
-const headerPlaceholder = document.getElementById('header-placeholder');
+const headerPlaceholder = document.querySelector('.header-placeholder');
 
 fetch('./header.html')
 .then(response => {
