@@ -78,7 +78,8 @@ a:visited {
 li {
     list-style: none;
 }
-main{
+
+main {
     width: 100%;
     height: 100%;
     display: flex;
@@ -86,6 +87,7 @@ main{
     align-items: center;
     justify-content: center;
 }
+
 section {
     width: 50%;
     height: 100%;
@@ -93,9 +95,10 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-block-start: 3rem;
+    padding-block-start: 1rem;
 
 }
+
 .sr-only {
     position: absolute;
     /* Coloca el contenido fuera de la pantalla */
@@ -122,7 +125,7 @@ section {
 }
 
 .logoIcon {
-    margin: 2rem;
+    margin: 1.5rem;
 }
 
 .navList {
@@ -196,13 +199,14 @@ section {
     background: url('../images/home/background-home-mobile.jpg') no-repeat center center/cover;
 
 }
+
 .homeContent {
     width: 100%;
     padding-inline: 1.5rem;
     text-align: center;
 }
 
-.homeButton{
+.homeButton {
     width: 100%;
     aspect-ratio: 1;
     border: none;
@@ -211,10 +215,57 @@ section {
     letter-spacing: 0.08rem;
     font-size: 1.25rem;
 }
+
 #destination {
     background: url('../images/destination/background-destination-mobile.jpg') no-repeat center center/cover;
+}
 
+.destinationGalery {
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
 
+.destinationGalery span {
+    margin-right: 1rem;
+    font-size: 1rem;
+    opacity: .25;
+}
+
+.destinationImage img {
+    width: 10.6rem;
+    aspect-ratio: 1;
+}
+.destinationInfo {
+    width: 100%;
+}
+.destinationInfo a{
+    color: #fff;
+    font-size: .87rem;
+    letter-spacing: .15rem;
+}
+.destinationInfo hr {
+    width: calc(100% - 1.5rem);
+    height: 1px;
+    background-color: #D0D6F9;
+    opacity: 0.5;
+
+}
+.destinationText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 1.5rem 2rem 1.5rem;
+}
+.destinationInfo nav {
+   
+}
+
+.destinationInfo nav>ul {
+    display: flex;
+    gap: 1.6rem;
 }
 
 #crew {
@@ -227,16 +278,19 @@ section {
     background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
 }
 
-@media screen and  (min-width: 768px) {
+@media screen and (min-width: 768px) {
     h1 {
         font-size: 9.4rem;
     }
+
     h5 {
-        font-size: 1.25rem;
+        font-size: 1.75rem;
     }
+
     p {
-        font-size: 1rem;
+        font-size: 1.13rem;
     }
+
     .navList {
         display: flex;
         flex-direction: row;
@@ -278,10 +332,10 @@ section {
 
     }
 
-    .homeContent{
+    .homeContent {
         text-align: center;
         padding-inline: 10rem;
-        
+
     }
 
     #destination {
@@ -302,9 +356,22 @@ section {
 }
 
 @media screen and (min-width: 1024px) {
-    main{
+    h1 {
+        font-size: 9.4rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    main {
         flex-direction: row;
     }
+
     .nav-toggle {
         display: none;
     }
@@ -324,7 +391,7 @@ section {
     .navList hr {
         display: block;
         position: absolute;
-        width:  100%;
+        width: 100%;
         height: 1px;
         background-color: #D0D6F9;
         opacity: 0.5;
@@ -367,15 +434,34 @@ section {
         background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
 
     }
-.homeContent{
-    padding-inline: 10rem;
-    align-items: flex-start;
-    text-align: start;
-}
-.homeButton{
-    width: 63%;
 
-}
+    .homeContent {
+        padding-inline: 10rem;
+        align-items: flex-start;
+        text-align: start;
+        flex-wrap: wrap;
+    }
+
+    .homeButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 63%;
+        margin-block-start: 4rem;
+        position: relative;
+    }
+
+    .homeButton:hover::after {
+        content: "";
+        position: absolute;
+        width: 150%;
+        aspect-ratio: 1;
+        background: hsla(0 0% 100%);
+        opacity: 0.13;
+        border-radius: 100%;
+        z-index: -1;
+    }
+
     #destination {
         background: url('../images/destination/background-destination-desktop.jpg') no-repeat center center/cover;
 
