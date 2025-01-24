@@ -77,15 +77,18 @@ a:visited {
 
 li {
     list-style: none;
+    position: relative;
+    display: flex;
 }
 
 main {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    overflow-x: auto;
+
 }
 
 section {
@@ -95,7 +98,6 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-block-start: 1rem;
 
 }
 
@@ -180,10 +182,6 @@ section {
     letter-spacing: 2.7px;
 }
 
-.navList li {
-    position: relative;
-    display: flex;
-}
 
 .navList li.active::after {
     content: "";
@@ -200,10 +198,21 @@ section {
 
 }
 
+#homeMain {
+    justify-content: center;
+    gap: 5rem;
+}
+
 .homeContent {
     width: 100%;
     padding-inline: 1.5rem;
     text-align: center;
+
+}
+
+.homeContent h5,
+h1 {
+    margin-block: 1rem;
 }
 
 .homeButton {
@@ -224,26 +233,35 @@ section {
     width: 100%;
     height: 100%;
     gap: 2rem;
+    margin-block-end: 1.6rem;
 }
 
 .destinationGalery span {
     margin-right: 1rem;
     font-size: 1rem;
     opacity: .25;
+
+}
+
+.destinationImage {
+    margin: 1.6rem;
 }
 
 .destinationImage img {
     width: 10.6rem;
     aspect-ratio: 1;
 }
+
 .destinationInfo {
     width: 100%;
 }
-.destinationInfo a{
+
+.destinationInfo a {
     color: #fff;
     font-size: .87rem;
     letter-spacing: .15rem;
 }
+
 .destinationInfo hr {
     width: calc(100% - 1.5rem);
     height: 1px;
@@ -251,6 +269,7 @@ section {
     opacity: 0.5;
 
 }
+
 .destinationText {
     display: flex;
     flex-direction: column;
@@ -259,13 +278,49 @@ section {
     text-align: center;
     padding: 1rem 1.5rem 2rem 1.5rem;
 }
-.destinationInfo nav {
-   
-}
 
-.destinationInfo nav>ul {
+.destinationNav {
     display: flex;
     gap: 1.6rem;
+}
+
+.destinationStats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 2rem;
+}
+
+.destinationDistance,
+.destinationTravel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 1rem;
+    gap: .75rem;
+}
+
+.destinationStats p {
+    font-size: .87rem;
+    letter-spacing: .15rem;
+    color: #D0D6F9;
+
+}
+
+.destinationStats h5 {
+    font-size: 1.75rem;
+    font-family: "Bellefair", serif;
+    color: #fff;
+}
+
+.dest-active::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    margin-inline-end: 0.5rem;
+    position: absolute;
+    top: calc(100% + .7rem);
 }
 
 #crew {
@@ -280,19 +335,24 @@ section {
 
 @media screen and (min-width: 768px) {
     h1 {
-        font-size: 9.4rem;
+        font-size: 5rem;
     }
 
     h5 {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
     }
 
     p {
-        font-size: 1.13rem;
+        font-size: 1rem;
+    }
+
+    .header-placeholder nav {
+        height: 100%;
     }
 
     .navList {
         display: flex;
+        height: 100%;
         flex-direction: row;
         padding: 0;
         padding-block: 2rem;
@@ -343,6 +403,35 @@ section {
 
     }
 
+    .destinationGalery {
+        margin-block-start: 2rem;
+    }
+
+    .destinationGalery h5 {
+        align-self: flex-start;
+        padding-inline: 2rem;
+    }
+
+    .destinationGalery h5>span {
+        font-size: 1.25rem;
+    }
+
+    .destinationImage img {
+        width: 18.7rem;
+    }
+
+    .destinationNav li>a {
+        font-size: 1rem;
+    }
+.destinationInfo{
+    padding-inline: 6rem;
+}
+    .destinationStats {
+        width: 100%;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
     #crew {
         background: url('../images/crew/background-crew-tablet.jpg') no-repeat center center/cover;
 
@@ -371,7 +460,9 @@ section {
     main {
         flex-direction: row;
     }
-
+.header-placeholder {
+    margin-block-start: 2rem;
+}
     .nav-toggle {
         display: none;
     }
@@ -434,7 +525,9 @@ section {
         background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
 
     }
-
+#homeMain{
+    height: 100%;
+}
     .homeContent {
         padding-inline: 10rem;
         align-items: flex-start;
@@ -466,7 +559,15 @@ section {
         background: url('../images/destination/background-destination-desktop.jpg') no-repeat center center/cover;
 
     }
+    #destinationMain{
+        height: 100%;
+        overflow-y: hidden;
+        margin-block-start: 2rem;
 
+    }
+    .destinationInfo{
+        padding: 0;
+    }
     #crew {
         background: url('../images/crew/background-crew-desktop.jpg') no-repeat center center/cover;
 
