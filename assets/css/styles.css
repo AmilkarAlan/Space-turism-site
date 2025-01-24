@@ -329,8 +329,53 @@ h1 {
 
 }
 
+.crewNav {
+    display: flex;
+    gap: 1.5rem;
+    margin-block: 2rem;
+}
+
+.dot {
+    width: .94rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: #fff;
+    opacity: .17;
+}
+
+.dot-active {
+    opacity: 1;
+}
+
 #technology {
     background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
+}
+
+.dot-num {
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1px solid #ffffff25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-num-active {
+    background-color: #fff;
+    border: none;
+}
+
+.dot-num.dot-num-active span {
+    color: #000;
+}
+
+.dot-num span {
+    font-size: 1.87rem;
+    color: #fff;
+    font-family: "Bellefair", serif;
+    font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {
@@ -423,9 +468,11 @@ h1 {
     .destinationNav li>a {
         font-size: 1rem;
     }
-.destinationInfo{
-    padding-inline: 6rem;
-}
+
+    .destinationInfo {
+        padding-inline: 6rem;
+    }
+
     .destinationStats {
         width: 100%;
         justify-content: space-around;
@@ -460,9 +507,11 @@ h1 {
     main {
         flex-direction: row;
     }
-.header-placeholder {
-    margin-block-start: 2rem;
-}
+
+    .header-placeholder {
+        margin-block-start: 2rem;
+    }
+
     .nav-toggle {
         display: none;
     }
@@ -525,9 +574,11 @@ h1 {
         background: url('../images/home/background-home-desktop.jpg') no-repeat center center/cover;
 
     }
-#homeMain{
-    height: 100%;
-}
+
+    #homeMain {
+        height: 100%;
+    }
+
     .homeContent {
         padding-inline: 10rem;
         align-items: flex-start;
@@ -559,15 +610,18 @@ h1 {
         background: url('../images/destination/background-destination-desktop.jpg') no-repeat center center/cover;
 
     }
-    #destinationMain{
+
+    #destinationMain {
         height: 100%;
         overflow-y: hidden;
         margin-block-start: 2rem;
 
     }
-    .destinationInfo{
+
+    .destinationInfo {
         padding: 0;
     }
+
     #crew {
         background: url('../images/crew/background-crew-desktop.jpg') no-repeat center center/cover;
 
