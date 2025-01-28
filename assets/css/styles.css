@@ -518,10 +518,12 @@ h1 {
     font-family: "Bellefair", serif;
     font-weight: 400;
 }
-.technologyContainer{
+
+.technologyContainer {
     display: flex;
     flex-direction: column;
 }
+
 .technologyText {
     width: 100%;
     display: flex;
@@ -745,10 +747,20 @@ h1 {
 
     h5 {
         font-size: 1.25rem;
+        width: max-content;
+        margin-inline-start: 5rem;
+    }
+
+    h3 {
+        font-size: 3.5rem;
+    }
+
+    h4 {
+        font-size: 2rem;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 1.12rem;
     }
 
     main {
@@ -887,6 +899,38 @@ h1 {
 
     #crewMain {
         flex-direction: row-reverse;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+        
+    }
+
+    .crewText {
+        width: 100%;
+        padding-inline: 10rem 5rem;
+        padding-inline-start: 10rem;
+        align-items: flex-start;
+        text-align: start;
+
+    }
+
+    .crewInfo {
+        text-align: start;
+        align-items: flex-start;
+    }
+
+    .crewGalery {
+        height: 100%;
+        padding-inline: 0;
+        gap: 0;
+        justify-content: flex-start;
+
+    }
+
+    .crewGalery img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
     }
 
     #technology {
@@ -895,13 +939,34 @@ h1 {
     }
 
     #technologyMain {
+        height: 100%;
         flex-direction: row-reverse;
     }
 
     .technologyContainer {
         flex-direction: row;
+        gap: 5rem;
     }
-.techNav{
-    flex-direction: column;
+#technologyInfo{
+    padding-inline: 9.3rem 8.12rem;
+    padding-block: 0;
 }
+    .techNav {
+        flex-direction: column;
+    }
+.technologyImage{
+display: flex;
+justify-content: flex-end;
+align-items: flex-end;
+    padding-block-end: 2rem;
+}
+.technologyImage img{
+    width: fit-content;
+    height: 100%;
+    object-fit: contain;
+}
+    .technologyText{
+        align-items: flex-start;
+        text-align: start;
+    }
 }
