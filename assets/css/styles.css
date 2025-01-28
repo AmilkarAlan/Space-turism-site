@@ -459,6 +459,10 @@ h1 {
     background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
 }
 
+#technologyMain {
+    display: flex;
+}
+
 #technologyInfo {
     width: 100%;
     padding-inline: 1.5rem;
@@ -514,7 +518,10 @@ h1 {
     font-family: "Bellefair", serif;
     font-weight: 400;
 }
-
+.technologyContainer{
+    display: flex;
+    flex-direction: column;
+}
 .technologyText {
     width: 100%;
     display: flex;
@@ -878,9 +885,23 @@ h1 {
 
     }
 
+    #crewMain {
+        flex-direction: row-reverse;
+    }
+
     #technology {
         background: url('../images/technology/background-technology-desktop.jpg') no-repeat center center/cover;
 
     }
 
+    #technologyMain {
+        flex-direction: row-reverse;
+    }
+
+    .technologyContainer {
+        flex-direction: row;
+    }
+.techNav{
+    flex-direction: column;
+}
 }
