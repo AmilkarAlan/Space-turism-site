@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     a.textContent = destination.name.toUpperCase();
                     li.appendChild(a);
                     destNav.appendChild(li);
+                    console.log("Navegacion activa");
 
                     if (index === 0) {
                         // Agregar la clase active al primer elemento por defecto

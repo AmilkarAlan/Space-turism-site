@@ -884,14 +884,15 @@ h1 {
     #destinationMain {
         height: 100%;
         overflow-y: hidden;
-        margin-block-start: 2rem;
-
     }
 
     .destinationInfo {
-        padding: 0;
+        height: 100%;
+        justify-content: start;
     }
-
+.destinationStats{
+    margin-block: 1rem;
+}
     #crew {
         background: url('../images/crew/background-crew-desktop.jpg') no-repeat center center/cover;
 
@@ -902,7 +903,7 @@ h1 {
         width: 100%;
         height: 100%;
         overflow-y: hidden;
-        
+
     }
 
     .crewText {
@@ -947,25 +948,30 @@ h1 {
         flex-direction: row;
         gap: 5rem;
     }
-#technologyInfo{
-    padding-inline: 9.3rem 8.12rem;
-    padding-block: 0;
-}
+
+    #technologyInfo {
+        padding-inline: 9.3rem 8.12rem;
+        padding-block: 0;
+    }
+
     .techNav {
         flex-direction: column;
     }
-.technologyImage{
-display: flex;
-justify-content: flex-end;
-align-items: flex-end;
-    padding-block-end: 2rem;
-}
-.technologyImage img{
-    width: fit-content;
-    height: 100%;
-    object-fit: contain;
-}
-    .technologyText{
+
+    .technologyImage {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-block-end: 2rem;
+    }
+
+    .technologyImage img {
+        width: fit-content;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .technologyText {
         align-items: flex-start;
         text-align: start;
     }
