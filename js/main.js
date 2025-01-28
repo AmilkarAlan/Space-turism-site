@@ -171,21 +171,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     dot.appendChild(dotNum);
                     li.appendChild(dot);
                     techNav.appendChild(li);
+
+                    // Funcion para cargar la imagen de la tecnologia segun el tamaño de la pantalla
+                    const loadImg = () => {
+                        if (window.matchMedia('(min-width: 1024px)').matches) {
+                            techImg.src = tech.images.portrait;
+                        } else {
+                            techImg.src = tech.images.landscape;
+                        }
+                    }
+                    // Cargar la informacion de la primera tecnologia por defecto
                     if (index === 0) {
                         dot.classList.add('dot-num-active');
                         techName.textContent = tech.name.toUpperCase();
                         techDesc.textContent = tech.description;
-                        techImg.src = tech.images.portrait;
+                        loadImg();
 
                     }
-
+                    // Evento click para cambiar la informacion de la tecnologia
                     dot.addEventListener("click", (e) => {
                         const allDots = document.querySelectorAll('.techNav .dot-num');
                         allDots.forEach(dot => { dot.classList.remove('dot-num-active') });
                         dot.classList.add('dot-num-active');
                         techName.textContent = tech.name.toUpperCase();
                         techDesc.textContent = tech.description;
-                        techImg.src = tech.images.portrait;
+                        loadImg();
 
                     })
                 });

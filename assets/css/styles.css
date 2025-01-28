@@ -45,7 +45,8 @@ h3 {
     font-family: "Bellefair", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 3.5rem;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 h4 {
@@ -458,8 +459,37 @@ h1 {
     background: url('../images/technology/background-technology-mobile.jpg') no-repeat center center/cover;
 }
 
+#technologyInfo {
+    width: 100%;
+    padding-inline: 1.5rem;
+}
+
+#technologyGalery {
+    width: 100%;
+    height: 100%;
+}
+
+.technologyImage {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.technologyImage img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.techNav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-block: 2.12rem 1.6rem;
+}
+
 .dot-num {
-    width: 5rem;
+    width: 2.5rem;
     aspect-ratio: 1;
     border-radius: 100%;
     background-color: transparent;
@@ -479,10 +509,26 @@ h1 {
 }
 
 .dot-num span {
-    font-size: 1.87rem;
+    font-size: 1rem;
     color: #fff;
     font-family: "Bellefair", serif;
     font-weight: 400;
+}
+
+.technologyText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.technologyText>h5 {
+    margin-block-end: 0;
+}
+
+.technologyText>h3 {
+    margin-block: .6rem 1rem;
 }
 
 /* Breackpoint para tablet */
@@ -562,6 +608,14 @@ h1 {
         text-align: center;
         padding-inline: 10rem;
 
+    }
+
+    .homeButton {
+        width: 63%;
+        margin-block-start: 4rem;
+        position: relative;
+        font-size: 2rem;
+        letter-spacing: .12rem;
     }
 
     #destination {
@@ -658,6 +712,23 @@ h1 {
 
     }
 
+    #technologyInfo {
+        width: 100%;
+        padding-inline: 9.7rem;
+        padding-block-end: 6rem;
+    }
+
+    .dot-num {
+        width: 3.75rem;
+    }
+
+    .dot-num span {
+        font-size: 1.5rem;
+    }
+
+    .techNav {
+        margin-block: 3.5rem 2.75rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
